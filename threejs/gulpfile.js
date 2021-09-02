@@ -10,7 +10,7 @@ gulp.task('default',()=>{
     port: 2999
   });
 
-  gulpWatch('./index.html', ()=> {
+  gulpWatch(['./index.html', './js/**'], ()=> {
     gulp.src('./index.html')
       .pipe(gulpConnect.reload());
   });
