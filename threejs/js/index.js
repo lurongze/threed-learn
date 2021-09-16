@@ -14,14 +14,14 @@ var camera = new THREE.PerspectiveCamera(
   1000
 );
 var renderer = new THREE.WebGLRenderer({
-  alpha: true,
+  alpha: true
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
 var geometry = new THREE.BoxGeometry(1, 1.5, 1);
 var material = new THREE.MeshBasicMaterial({
-  color: 0x0000ff,
+  color: 0x0000ff
 });
 var cube = new THREE.Mesh(geometry, material);
 
@@ -32,10 +32,10 @@ for (let i = 0; i < 100; i++) {
   let colorArray = new Float32Array([
     Math.random(),
     Math.random(),
-    Math.random(),
+    Math.random()
   ]);
   let mat = new THREE.MeshBasicMaterial({
-    color: color.fromArray(colorArray),
+    color: color.fromArray(colorArray)
   });
   let item = new THREE.Mesh(met, mat);
   item.position.x = Math.random() * 3 * (i % 7 === 0 ? -1 : 1);
@@ -50,7 +50,7 @@ for (let i = 0; i < 100; i++) {
 // var axis = new THREE.AxisHelper(800);
 // scene.add(axis);
 
-camera.position.z = 5;
+camera.position.z = 8;
 
 var render = function () {
   requestAnimationFrame(render);
