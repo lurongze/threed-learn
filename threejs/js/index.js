@@ -82,15 +82,15 @@ function onMouseClick(event) {
   // 获取raycaster直线和所有模型相交的数组集合
   var intersects = raycaster.intersectObjects(scene.children);
 
-  console.log(intersects);
+  console.log("intersects",intersects);
 
   //将所有的相交的模型的颜色设置为红色，如果只需要将第一个触发事件，那就数组的第一个模型改变颜色即可
   // for ( var i = 0; i < intersects.length; i++ ) {
-  //
+  
   //   if( i < 1 ) {
   //     intersects[ i ].object.material.color.set( 0xff0000 );
   //   }
-  //
+  
   // }
   if (intersects && intersects.length > 0) {
     intersects[0].object.material.color.set(0xff0000);
