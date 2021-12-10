@@ -1,5 +1,6 @@
 import * as THREE from "three";
 import * as OrbitControls from "three/examples/jsm/controls/OrbitControls";
+import * as GTLF from "three/examples/jsm/loaders/GLTFLoader";
 
 const renderer = new THREE.WebGLRenderer();
 renderer.setClearColor(0xffffff, 1.0);
@@ -35,30 +36,33 @@ controls.update();
 
 const loader = new THREE.ObjectLoader();
 // const loader = new THREE.Loader
-
+let naiyaziObj = null;
 loader.load(
 	// 资源的URL
-	"./model.obj",
+	"./naiyazi.json",
 
 	// onLoad回调
 	// Here the loaded data is assumed to be an object
-	function ( obj ) {
+	function (obj) {
 		// Add the loaded object to the scene
-		scene.add( obj );
+		naiyaziObj = obj;
+		scene.add(obj);
 	},
 
 	// onProgress回调
-	function ( xhr ) {
-		console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+	function (xhr) {
+		// console.log( (xhr.loaded / xhr.total * 100) + '% loaded' );
+		console.log("xhr", xhr);
 	},
 
 	// onError回调
-	function ( err ) {
-		console.error( 'An error happened' );
+	function (err) {
+		console.error('An error happened');
 	}
 );
 
 let x = 0;
+// let modelX = 0;
 
 function animate() {
 
@@ -69,6 +73,9 @@ function animate() {
 	line.rotateY(x);
 	line.rotateX(x);
 	line.rotateZ(x);
+	if (naiyaziObj) {
+		naiyaziObj.rotateY(x);
+	}
 	// line.translateX(x);
 	// required if controls.enableDamping or controls.autoRotate are set to true
 	// controls.update();
