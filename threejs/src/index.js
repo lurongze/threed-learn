@@ -39,7 +39,8 @@ const loader = new THREE.ObjectLoader();
 let naiyaziObj = null;
 loader.load(
 	// 资源的URL
-	"./naiyazi.json",
+	// "./naiyazi.json",
+	"./men.glb",
 
 	// onLoad回调
 	// Here the loaded data is assumed to be an object
